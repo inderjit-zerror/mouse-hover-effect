@@ -1,9 +1,9 @@
 import React, { useMemo, useRef, useState } from "react";
 import { useTexture } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import Vertex from "@/shaders/Vertex.glsl";
-import Fragment from "@/shaders/Fragment.glsl";
+
 import * as THREE from "three";
+import { FragmentShader, VertexShader } from "@/shaders/newShaders";
 
 const SceneComponent = () => {
   const meshRef = useRef();
@@ -101,8 +101,8 @@ const SceneComponent = () => {
       <planeGeometry args={planeSize} />
       <shaderMaterial
         uniforms={uniforms}
-        vertexShader={Vertex}
-        fragmentShader={Fragment}
+        vertexShader={VertexShader}
+        fragmentShader={FragmentShader}
       />
     </mesh>
   );
